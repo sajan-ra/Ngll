@@ -35,6 +35,11 @@ export const saveReply = (id: string, reply: string) => {
   localStorage.setItem(MSG_KEY, JSON.stringify(messages));
 };
 
+export const deleteMessage = (id: string) => {
+  const messages = getMessages().filter(msg => msg.id !== id);
+  localStorage.setItem(MSG_KEY, JSON.stringify(messages));
+};
+
 export const getUserSettings = (): UserSettings => {
   const data = localStorage.getItem(USER_KEY);
   return data ? JSON.parse(data) : { username: 'Sajan' }; // Default
