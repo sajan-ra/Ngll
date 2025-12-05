@@ -1,4 +1,4 @@
-import { GoogleGenAI, Type } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 
 // Initialize the Gemini AI client
 // NOTE: In a real production app, you might want to proxy this through a backend 
@@ -14,7 +14,6 @@ export const generateRandomQuestion = async (): Promise<string> => {
       contents: "Generate a single, short, fun, spicy, or deep anonymous question to ask a friend on social media. Keep it under 15 words. Just the question, no quotes.",
       config: {
         temperature: 1.2, // High creativity
-        maxOutputTokens: 50,
       }
     });
     return response.text?.trim() || "What's your biggest secret?";
